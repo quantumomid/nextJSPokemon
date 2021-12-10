@@ -7,7 +7,6 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Navbar />
       <Head>
         <title>Pokemon's Den</title>
         <meta name="description" content="Information on various pokemons" />
@@ -20,7 +19,6 @@ export default function Home() {
         </h1>
 
       </main>
-      <Footer />
     </div>
   )
 }
