@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
@@ -17,7 +18,9 @@ export default function Home() {
         <h1 className={styles.title}>
          Welcome to the Pokemon Den
         </h1>
-
+        <p className={styles.text}>The PokeDen website gives you the ability to find the pokemon of your choice and learn some facts about it.</p>
+        <p className={styles.text}>Without any further ado, let us begin!</p>
+        <Link href="/pokemons"><a className={styles.btn}>See Pokemons</a></Link>
       </main>
     </div>
   )
