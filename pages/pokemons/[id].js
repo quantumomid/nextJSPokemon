@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import styles from "../../styles/Pokemons.module.css";
 import { getHundredPokemonsWithIds, getSinglePokemonDetails } from "../../utils/pokemonUtils";
 import Image from "next/image";
 
@@ -39,17 +40,17 @@ const PokemonDetails = ({ pokemon }) => {
             <title>PokeDen | Pokemon Details</title>
             <meta name="keywords" content="pokemons" />
             </Head>
-            <article>
-                <h1>{ pokemon.name }</h1>
+            <article className={styles.details}>
+                <h1 className={styles.title}>{ pokemon.name }</h1>
                 {/* <Image src={pokemon.sprites.front_default} alt={`Font view of the pokemon ${pokemon.name}`} width={100} height={100} layout="responsive"/> */}
-                <img src={pokemon.sprites.front_default} alt={`Font view of the pokemon ${pokemon.name}`} width={100} height={100}/>
-                <p>Weight: { pokemon.weight }</p>
+                <img className={styles.pokemonImage} src={pokemon.sprites.front_default} alt={`Font view of the pokemon ${pokemon.name}`}/>
+                <p className={styles.weight}>Weight: { pokemon.weight }</p>
                 <h2>Types:</h2>
                 <ul>
                     { types }
                 </ul>
-                <h2>Abilities: </h2>
-                <ul>
+                <h2 className={styles.abilitiesTitle}>Abilities: </h2>
+                <ul className={styles.abilitiesList}>
                     { abilities }
                 </ul>
             </article>
