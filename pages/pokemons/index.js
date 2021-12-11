@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../../styles/Pokemons.module.css";
 
 export const getStaticProps = async() => {
@@ -6,9 +7,12 @@ export const getStaticProps = async() => {
     const data = await response.json();
     const hundredPokemons = data.results;
 
+    // Add ids using the url string ending :)
+    const hundredPokemonsWithIds = hundredPokemons.reduce((prev, curr) => [...prev, { ...curr, id: getPokemonId(curr.url) }], []);
+
     return {
         props: {
-            pokemons: hundredPokemons
+            pokemons: hundredPokemonsWithIds
         }
     }
 }
@@ -24,16 +28,26 @@ const Pokemons = ({ pokemons }) => {
             </Head>
             <h1>All Pokemons</h1>
             { pokemons.map(pokemon => (
-                <article key={pokemon.name} className={styles.single}>
-                    <a>
+                <Link key={pokemon.id} href={"/pokemons/" + pokemon.id}>
+                    <a className={styles.single}> 
                         <h3>{ pokemon.name }</h3>
                     </a>
-                </article>
+                </Link>
                 )
                 ) 
             }
         </div>
     )
+}
+
+const getPokemonId = (urlString) => {
+    const stringSplitted = urlString.split("/");
+    // console.log(stringSplitted);
+    const stringSplittedLength = stringSplitted.length;
+    // Get the second last/penultimate element 
+    const pokemonId = stringSplitted[stringSplittedLength-2];
+    console.log(pokemonId)
+    return pokemonId;
 }
 
 export default Pokemons;
