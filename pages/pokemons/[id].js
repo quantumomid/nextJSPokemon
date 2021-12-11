@@ -1,6 +1,20 @@
 import React from "react";
 import Head from "next/head";
+import { getHundredPokemonsWithIds } from "../../utils/pokemonUtils";
 
+export const getStaticPaths = async() => {
+    const hundredPokemonsWithIds = await getHundredPokemonsWithIds();
+    const hundredPokemonsPaths = hundredPokemonsWithIds.map(pokemon => { 
+        return {
+            params: { id: pokemon.id } 
+        }
+    });
+
+    return {
+        paths: hundredPokemonsPaths,
+        fallback: false
+    }
+}
 
 const PokemonDetails = () => {
     return (
