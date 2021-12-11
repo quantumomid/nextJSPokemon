@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav>
             <div className="logo">
-                <Image src="/images/pokemonLogo.png" alt="Cartoon style red-white pokemon ball" width={72} height={72} />
+                <Link href="/"><a><Image src="/images/pokemonLogo.png" alt="Cartoon style red-white pokemon ball" width={72} height={72} /></a></Link>
                 <h1>PokeDen</h1>
             </div>
             <Link href="/"><a>Home</a></Link>

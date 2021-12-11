@@ -18,3 +18,9 @@ export const getPokemonId = (urlString) => {
     console.log(pokemonId)
     return pokemonId;
 }
+
+export const getSinglePokemonDetails = async (pokemonId) => {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonId);
+    const data = await response.json();
+    return data;
+}

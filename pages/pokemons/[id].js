@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { getHundredPokemonsWithIds } from "../../utils/pokemonUtils";
+import { getHundredPokemonsWithIds, getSinglePokemonDetails } from "../../utils/pokemonUtils";
 
 export const getStaticPaths = async() => {
     const hundredPokemonsWithIds = await getHundredPokemonsWithIds();
@@ -16,7 +16,19 @@ export const getStaticPaths = async() => {
     }
 }
 
-const PokemonDetails = () => {
+export const getStaticProps = async (context) => {
+    const id = context.params.id;
+
+    const data = await getSinglePokemonDetails(id);
+
+    return {
+        props: {
+            pokemon: data
+        }
+    }
+}
+
+const PokemonDetails = ({ pokemon }) => {
     return (
         <React.Fragment>
             <Head>
@@ -24,7 +36,7 @@ const PokemonDetails = () => {
             <meta name="keywords" content="pokemons" />
             </Head>
             <article>
-                <h1>Pokemon Details</h1>
+                <h1>{ pokemon.name }</h1>
             </article>
         </React.Fragment>
     )
