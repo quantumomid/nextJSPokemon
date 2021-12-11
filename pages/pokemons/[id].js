@@ -36,7 +36,7 @@ const PokemonDetails = ({ pokemon }) => {
     return (
         <React.Fragment>
             <Head>
-            <title>Pokemon's Den | Pokemon Details</title>
+            <title>PokeDen | Pokemon Details</title>
             <meta name="keywords" content="pokemons" />
             </Head>
             <article>

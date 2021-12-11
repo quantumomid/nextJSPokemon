@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Pokemon's Den | Home</title>
+        <title>PokeDen | Home</title>
         <meta name="keywords" content="pokemons" />
         <meta name="description" content="Information on various pokemons" />
         <link rel="icon" href="/favicon.ico" />

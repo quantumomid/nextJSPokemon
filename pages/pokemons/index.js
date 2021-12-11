@@ -18,7 +18,7 @@ const Pokemons = ({ pokemons }) => {
     return (
         <div>
             <Head>
-                <title>Pokemon's Den | Pokemons</title>
+                <title>PokeDen | Pokemons</title>
                 <meta name="keywords" content="pokemons" />
             </Head>
             <h1>All Pokemons</h1>
